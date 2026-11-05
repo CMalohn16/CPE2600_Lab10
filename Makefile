@@ -1,7 +1,7 @@
 CC=gcc 
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES= signal_handler.c
+SOURCES= signal_alarm.c
 OBJECTS=$(SOURCES:.c=.o) 
 EXECUTABLE=signals
 
