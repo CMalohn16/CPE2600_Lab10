@@ -1,2 +1,2 @@
-# CPE2600_Lab10
-Lab10, inter-process communication for systems programming
+## Repo for Lab Week 10
+Inter-process communication for systems programming
