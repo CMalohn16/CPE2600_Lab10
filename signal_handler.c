@@ -9,6 +9,7 @@
  * Modified by: Charlie Malohn
  * 
  * Brief summary of modifications:
+ *  The program does not exit when SIGINT is received.
  */
 
 
@@ -21,8 +22,7 @@
  * @brief Signal handler for SIGINT - prints a message and exits
  */
 void handle_signal() {
-    printf("Received a signal\n");
-    exit(1);
+    printf("\nReceived a signal\n");
 }
 
 int main() {
