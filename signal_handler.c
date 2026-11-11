@@ -1,6 +1,7 @@
 /**
  * @file signal_handler.c
  * @author Charlie Malohn
+ * @class CPE 2600 - 121
  * @date 11/5/2026
  * @brief Sets a signal handler for SIGINT, the handler prints a message and then quits
  */

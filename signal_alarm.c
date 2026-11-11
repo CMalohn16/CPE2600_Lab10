@@ -1,6 +1,7 @@
 /**
  * @file signal_alarm.c
  * @author Charlie Malohn
+ * @class CPE 2600 - 121
  * @date 11/5/2026
  * @brief Schedules a 5 second alarm and shows when SIGALRM is received
  */

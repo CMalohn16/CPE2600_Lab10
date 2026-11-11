@@ -1,7 +1,9 @@
 # Provided in assignment
 
 # Executable file
-signals
+handler
+alarm
+segfault
 
 # Prerequisites
 *.d

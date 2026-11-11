@@ -1,21 +1,20 @@
-CC=gcc 
-CFLAGS=-c -Wall
-LDFLAGS=
-SOURCES= signal_alarm.c
-OBJECTS=$(SOURCES:.c=.o) 
-EXECUTABLE=signals
+CFLAGS=-c -g -Wall -Werror
+CC=gcc
 
-all: $(SOURCES) $(EXECUTABLE) 
+all: alarm handler segfault
 
-# pull in dependency info for *existing* .o files
--include $(OBJECTS:.o=.d)
+alarm: signal_alarm.o
+	$(CC) -o alarm signal_alarm.o
 
-$(EXECUTABLE): $(OBJECTS) 
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@ 
+handler: signal_handler.o
+	$(CC) -o handler signal_handler.o
 
-.c.o:
-	$(CC) $(CFLAGS) $< -o $@
-	$(CC) -MM $<>$ *.d
+segfault: signal_segfault.o
+	$(CC) -o segfault signal_segfault.o
 
 clean:
-	rm -rf $(OBJECTS) $(EXECUTABLE) *.d
+	rm -f *.o alarm handler segfault
+
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+
