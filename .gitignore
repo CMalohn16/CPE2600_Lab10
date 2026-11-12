@@ -4,6 +4,11 @@
 handler
 alarm
 segfault
+sigaction
+receive
+send
+recvtennis
+serve
 
 # Prerequisites
 *.d
