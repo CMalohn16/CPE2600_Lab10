@@ -1,3 +1,10 @@
+/**
+ * @file tennis_scoring.c
+ * @author Charlie Malohn
+ * @class CPE 2600 - 121
+ * @date 11/12/2026
+ * @brief Important functions for playing signal tennis
+ */
 
 #include "tennis_scoring.h"
 
@@ -16,6 +23,7 @@ bool update_score(bool myPoint)
     bool opposingWin = false;
     int awardedPoints = 15;
 
+    //Determines scoring including wins and advantages
     if (myPoint)
     {
         if (myScore == 30)
@@ -85,6 +93,7 @@ bool update_score(bool myPoint)
         opposingScore += awardedPoints;
     }
     printf("-----\nScore\n  Me: %d\n  Opponent: %d\n-----\n", myScore, opposingScore);
+    //Exit on win so the next ball is never served
     if (myWin)
     {
         printf("Winner\n");

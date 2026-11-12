@@ -37,6 +37,7 @@ void return_ball(int signum, siginfo_t *info, void *context)
 
         if (!hit)
         {
+            //This process missed so the opponent gains a point
             printf("Miss\n");
             update_score(false);
         }
@@ -47,6 +48,7 @@ void return_ball(int signum, siginfo_t *info, void *context)
     }
     else
     {
+        //The opponent missed, so this process gains a point
         update_score(true);
     }
 }
@@ -55,6 +57,7 @@ int main()
 {
     srand(time(NULL));
 
+    //Call return_ball() with ball data when SIGUSR1 (BALL) is received
     struct sigaction sa;
     sa.sa_sigaction = return_ball;
     sa.sa_flags = SA_SIGINFO;

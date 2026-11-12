@@ -36,6 +36,7 @@ void return_ball(int signum, siginfo_t *info, void *context)
 
         if (!hit)
         {
+            //This process missed so the opponent gains a point
             printf("Miss\n");
             update_score(false);
             sleep(3);
@@ -48,6 +49,7 @@ void return_ball(int signum, siginfo_t *info, void *context)
     }
     else
     {
+        //The opponent missed, so this process gains a point
         update_score(true);
         sleep(3);
         serve(info->si_pid);
@@ -66,15 +68,7 @@ int main(int argc, char *argv[])
     int receiverPID = atoi(argv[1]);
     printf("Serving to PID: %d\n", receiverPID);
 
-    // srand(time(NULL));
-    // int num = rand() % 1000;
-
-    // union sigval sigValue;
-    // sigValue.sival_int = num;
-
-    // printf("Sending value %d to process %d\n", sigValue.sival_int, pid);
-    // sigqueue(pid, SIGUSR1, sigValue);
-
+    //Call return_ball() with ball data when SIGUSR1 (BALL) is received
     struct sigaction sa;
     sa.sa_sigaction = return_ball;
     sa.sa_flags = SA_SIGINFO;
